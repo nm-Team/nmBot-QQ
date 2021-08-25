@@ -1,5 +1,6 @@
 const plugins = [
-    "invite.js"
+    "invite.js",
+    "default.js"
 ]
 
 module.exports = plugins;
