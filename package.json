@@ -1,0 +1,16 @@
+{
+  "name": "nmbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "run": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nm-Team/nmBot.git"
+  },
+  "dependencies": {
+    "oicq": "^1.19.5"
+  }
+}
