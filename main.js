@@ -1,5 +1,6 @@
 const { createClient } = require("oicq");
 const config = require("./config.js");
+const plugins = require("./plugins.js");
 const client = createClient(config.account.id);
 
 client.on("system.online", () => console.log("Logged in!"));
@@ -23,4 +24,8 @@ else {
     }).login(config.account.password);
 }
 
-client.on("message", (event) => event.reply("nmsl"));
+exports.bot = client
+
+plugins.forEach((path) => {
+    require("./plugins/" + path);
+})
