@@ -1,6 +1,7 @@
 const plugins = [
     "invite.js",
     "site.js",
+    "about.js",
     "default.js"
 ]
 
