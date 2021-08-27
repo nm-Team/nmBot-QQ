@@ -4,7 +4,6 @@ var reg = /\/nm (.*)/;
 
 bot.on("message", function (e) {
     var args = reg.exec(e.raw_message);
-    console.log(args);
     if (args == null) {
         return;
     }
