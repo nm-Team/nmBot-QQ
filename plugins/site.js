@@ -8,5 +8,5 @@ bot.on("message", function (e) {
     if (args == null) {
         return;
     }
-    e.reply("https://nmteam.xyz/");
+    e.reply("https:// nmteam.x歪z");
 })

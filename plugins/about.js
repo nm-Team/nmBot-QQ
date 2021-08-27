@@ -5,7 +5,6 @@ bot.on("message", function (e) {
         e.reply(`       🍋
     nmBot
 nmTeam. 
-----------------------
-https://nmteam.xyz `);
+`);
     }
 })
