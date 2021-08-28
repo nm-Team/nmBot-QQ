@@ -1,7 +1,7 @@
 const config = {
     account: {
-        id = 12345678,
-        password = ""
+        id: 12345678,
+        password: ""
     },
     qrcode: true
 }

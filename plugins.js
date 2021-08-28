@@ -1,10 +1,10 @@
 const plugins = [
-    "invite.js",
-    "fk.js",
-    "site.js",
-    "NO-xyz1024.js",
-    "about.js",
-    "default.js"
+    "invite",
+    "fk",
+    "site",
+    "NOxyz1024",
+    "about",
+    "defaultEvent"
 ]
 
 module.exports = plugins;

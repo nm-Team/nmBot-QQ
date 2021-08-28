@@ -1,11 +1,16 @@
 const { bot } = require("../main.js");
 
-var reg = /\/nm site/;
-
-bot.on("message", function (e) {
-    var args = reg.exec(e.raw_message);
-    if (args == null) {
-        return;
+site = function (raw) {
+    var reg = /\/nm site/;
+    var args = reg.exec(raw.raw_message);
+    // console.log("raw " + JSON.stringify(raw));
+    // console.log("args " + args);
+    if (args != null) {
+        console.log("触发 site");
+        raw.reply("https:// nmteam.x歪z");
+        toBeContinue = false;
     }
-    e.reply("https:// nmteam.x歪z");
-})
+    else console.log("未触发 site");
+}
+
+module.exports = site;

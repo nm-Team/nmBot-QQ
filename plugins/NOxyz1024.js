@@ -12,6 +12,7 @@ bot.on("message", function (e) {
 })
 
 function ma(w) {
+    w = w.replace(/\[CQ:[^"$]*\]/g, "");
     if (w.indexOf("马") == -1 && w.indexOf("妈") == -1 && w.indexOf("m") == -1) return false;
     else return true;
 }
