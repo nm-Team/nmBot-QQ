@@ -1,5 +1,6 @@
 const plugins = [
     "invite",
+    "focusSomeone",
     "fk",
     "site",
     "NOxyz1024",

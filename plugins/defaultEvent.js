@@ -6,8 +6,15 @@ defaultCooling = [];
 defaultCoolingNoticed = [];
 
 defaultEvent = function (e) {
+    if(e.raw_message=="/nm"){
+        e.reply(`nmBot by nmTeam
+        
+/nm focus 上线提醒
+/nm about 关于`);
+        return;
+    };
     var args = reg.exec(e.raw_message);
-    // console.log("raw: " + JSON.stringify(e));
+    console.log("raw: " + JSON.stringify(e));
     if (args == null) {
         return;
     }
@@ -35,7 +42,7 @@ function rand(str) {
         returns = [
             "你这是要我回什么呢？",
             "你不是在耍我吧？",
-            "喂，认真点",
+            "喂，认真点 ",
             "你在教我做事？"
         ]
         return returns[Math.floor(Math.random() * returns.length)];
