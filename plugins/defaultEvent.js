@@ -50,7 +50,7 @@ function rand(str) {
     strsplit = str.split(" ");
     if (strsplit.length > 1 && !isNaN(Number(strsplit[strsplit.length - 1])) && str[Number(strsplit[strsplit.length - 1])] && str[Number(strsplit[strsplit.length - 1])] != " ") {
         console.log("确定返回字符");
-        return str[Number(strsplit[strsplit.length - 1])];
+        return str[Number(strsplit[strsplit.length - 1])].toLowerCase();
     }
     do {
         len = str.length;

@@ -32,6 +32,7 @@ focusSomeone = function (e) {
         toBeContinue = false;
         if (e.raw_message == "/nm focus help") {
             e.reply("nmFocus\n上线提醒，快人一步\n\n/nm focus <群号(在私聊中)> <QQ号>");
+            return;
         }
         msgSplited = e.raw_message.replace(/\/nm focus /g, "").split(" ");
         console.log(msgSplited);
