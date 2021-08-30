@@ -6,7 +6,7 @@ defaultCooling = [];
 defaultCoolingNoticed = [];
 
 defaultEvent = function (e) {
-    if(e.raw_message=="/nm"){
+    if (e.raw_message == "/nm") {
         e.reply(`nmBot by nmTeam
         
 /nm focus 上线提醒
@@ -56,7 +56,7 @@ function rand(str) {
         len = str.length;
         ran = Math.floor(Math.random() * len);
         if (str[ran] && str[ran] != " ")
-            return str[ran];
+            return str[ran].toLowerCase();
     } while (true);
 }
 
