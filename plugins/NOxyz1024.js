@@ -1,6 +1,6 @@
 const { bot } = require("../main.js");
-const { segment } = require("oicq")
-require(".ad.js");
+const { segment } = require("oicq");
+require("./ad.js");
 
 bot.on("message", function (e) {
     if (e.sender.user_id == 486483978) {
