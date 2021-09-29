@@ -5,6 +5,7 @@ const plugins = [
     "site",
     "NOxyz1024",
     "about",
+    "chat",
     "defaultEvent"
 ]
 

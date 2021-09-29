@@ -11,6 +11,7 @@
     "url": "git+https://github.com/nm-Team/nmBot.git"
   },
   "dependencies": {
-    "oicq": "^1.19.5"
+    "oicq": "^1.19.5",
+    "request": "^2.88.2"
   }
 }
