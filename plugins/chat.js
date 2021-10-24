@@ -8,7 +8,24 @@ chatApi = "http://api.qingyunke.com/api.php?key=free&appid=0&msg=";
 
 chat = function (e) {
     // 判断条件
-    if (e.raw_message.substring(0, 2) == "nm" || e.raw_message.indexOf("[CQ:at,qq=" + config.account.id) != -1) {
+    if (e.raw_message == "nm") {
+        toBeContinue = false;
+        switch (Math.floor(Math.random() * 10)) {
+            case 0:
+                rMes = "还nm，能不能爬啊";
+                break;
+            case 1:
+                rMes = "别nm了，我看你nm老半天了";
+                break;
+            case 2:
+                rMes = "你这么会nm，考虑过加入nmTeam吗";
+                break;
+            default:
+                rMes = "nm";
+        }
+        e.reply(rMes);
+    }
+    else if (e.raw_message.substring(0, 2) == "nm" || e.raw_message.indexOf("[CQ:at,qq=" + config.account.id) != -1) {
         toBeContinue = false;
         msg = encodeURI(e.raw_message.replace("nm", "").replace(/\[CQ:[^]*\]/g, ""));
         if (msg && msg != " ")
