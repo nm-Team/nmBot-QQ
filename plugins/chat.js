@@ -39,22 +39,6 @@ chat = function (e) {
             }
         });
     }
-    else if (e.raw_message == "nm") {
-        switch (Math.floor(Math.random() * 10)) {
-            case 0:
-                rMes = "还nm，能不能爬啊";
-                break;
-            case 1:
-                rMes = "别nm了，我看你nm老半天了";
-                break;
-            case 2:
-                rMes = "你这么会nm，考虑过加入nmTeam吗";
-                break;
-            default:
-                rMes = "nm";
-        }
-        e.reply(rMes);
-    }
 }
 
 module.exports = chat;
