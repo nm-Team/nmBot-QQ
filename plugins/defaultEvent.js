@@ -15,10 +15,27 @@ defaultEvent = function (e) {
     };
     var args = reg.exec(e.raw_message);
     console.log("raw: " + JSON.stringify(e));
+    console.log(args);
     if (args == null) {
+        if (e.message_type == "group" && e.raw_message.replace(/\[CQ:[^\]]*\]/g, "").replace(/ /g, "")[0] == "/") {
+            try {
+                atToQid = e.raw_message.split("[CQ:at,qq=")[1].split(",")[0];
+                atToQName = e.raw_message.split("[CQ:at,qq=")[1].split(",text=@")[1].split("]")[0];
+            }
+            catch (err) {
+                atToQid = e.sender.user_id;
+            }
+            fromQid = e.sender.user_id;
+            fromQName = (e.sender.card ? e.sender.card : e.sender.nickname);
+            // text = e.raw_message.replace(/\,text=[^"$]*\]/g, "]").replace(e.raw_message.replace(/\,text=[^"$]*\]/g, "]").split("/")[0]+"/","");
+            text = e.raw_message.replace(/\[CQ:[^\]]*\]/g, "").replace(e.raw_message.replace(/\[CQ:[^\]]*\]/g, "").split("/")[0] + "/", "");
+            textA = text.split(" ")[0];
+            textB = text.replace(textA, "");
+            e.reply((` $from ` + textA + ((textA[textA.length - 1] == "了" || textB) ? "" : "了") + "$to" + (textB ? "" + textB : "") + "！").replace(/\$from/g, `[CQ:at,qq=${fromQid}]`).replace(/\$to/g, (atToQid == fromQid ? "自己" : `[CQ:at,qq=${atToQid}]`)));
+        }
         return;
     }
-    muid = (e.group_id ? e.group_id : e.user_id);
+    muid = (e.group_id ? "g" + e.group_id : "u" + e.user_id);
     if (defaultCooling[muid]) {
         if (!defaultCoolingNoticed[muid]) {
             e.reply("nmBack 功能每 10 秒只能使用一次。或者，请输入正确的指令。");
@@ -33,7 +50,7 @@ defaultEvent = function (e) {
             defaultCoolingNoticed[muid] = false;
         }, 10000);
     }
-    console.log(muid + " " + defaultCooling[muid] + " " + defaultCoolingNoticed[muid])
+    console.log(muid + " " + defaultCooling[muid] + " " + defaultCoolingNoticed[muid]);
 }
 
 function rand(str) {
