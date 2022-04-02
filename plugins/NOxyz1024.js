@@ -3,7 +3,7 @@ const { segment } = require("oicq");
 require("./ad.js");
 
 bot.on("message", function (e) {
-    if (e.sender.user_id == 486483978) {
+    if (e.message_type != "private" && e.sender.user_id == 486483978) {
         if (ma(e.raw_message)) {
             if (Math.round(Math.random() > 0.6))
                 bot.setGroupBan(e.group_id, 486483978, Math.round(Math.random() * 6) * 60);
