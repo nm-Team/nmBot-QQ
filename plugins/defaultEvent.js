@@ -30,8 +30,11 @@ defaultEvent = function (e) {
             // text = e.raw_message.replace(/\,text=[^"$]*\]/g, "]").replace(e.raw_message.replace(/\,text=[^"$]*\]/g, "]").split("/")[0]+"/","");
             text = e.raw_message.replace(/\[CQ:[^\]]*\]/g, "").replace(e.raw_message.replace(/\[CQ:[^\]]*\]/g, "").split("/")[0] + "/", "");
             textA = text.split(" ")[0];
-            textB = text.replace(textA, "");
-            e.reply((` $from ` + textA + ((textA[textA.length - 1] == "了" || textB) ? "" : "了") + "$to" + (textB ? "" + textB : "") + "！").replace(/\$from/g, `[CQ:at,qq=${fromQid}]`).replace(/\$to/g, (atToQid == fromQid ? "自己" : `[CQ:at,qq=${atToQid}]`)));
+            if ("abcdefghijklmnopqrstuvwxyz".indexOf(textA.charAt(0).toLowerCase()) == -1) {
+                if (textA.charAt(0) == "$") textA = textA.replace("$", "");
+                textB = text.replace(textA, "");
+                e.reply((` $from ` + textA + ((textA[textA.length - 1] == "了" || textB) ? "" : "了") + "$to" + (textB ? "" + textB : "") + "！").replace(/\$from/g, `[CQ:at,qq=${fromQid}]`).replace(/\$to/g, (atToQid == fromQid ? "自己" : `[CQ:at,qq=${atToQid}]`)));
+            }
         }
         return;
     }
